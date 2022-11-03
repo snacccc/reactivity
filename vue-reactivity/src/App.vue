@@ -3,7 +3,7 @@
     <div class="app">
       <RouterLink class="router home" to="/">Home</RouterLink>
       <header>|</header>
-      <RouterLink class="router test" to="/test">Test</RouterLink>
+      <RouterLink class="router reactivity" to="/reactivity">Reactivity</RouterLink>
     </div>
 
     <RouterView/>
@@ -39,7 +39,7 @@
   }
 
   .router:active {
-    color: blue;
+    color: #2e2e82;
   }
 
 </style>

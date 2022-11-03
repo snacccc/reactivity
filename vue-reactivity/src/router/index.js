@@ -10,8 +10,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/test',
-      name: 'test',
+      path: '/reactivity',
+      name: 'reactivity',
+      component: () => import('../views/Reactivity.vue')
     }
   ]
 })

@@ -2,7 +2,7 @@
 
   <div class="home">
     <header class="header">
-      Welcome.
+      A collection of all my Vue Projects (Currently WIP)
     </header>
   </div>
 
@@ -10,16 +10,22 @@
 
 <script>
 
+  import Button from '../components/Button.vue'
+
   export default  {
     name: 'home',
+    components: {
+      Button,
+    }
     }
 
 </script>
 
-<style>
+<style scoped>
 
   .home {
     margin: 1rem;
+    color: white;
   }
 
 </style>
