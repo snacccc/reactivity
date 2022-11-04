@@ -2,35 +2,35 @@
   <div class="reactivity">
     <div class="inputs">
       
-      <div class="rowOne">
+      <div class="row one">
 
-        <Button>7</Button>
-        <Button>8</Button>
-        <Button>9</Button>
-
-      </div>
-
-      <div class="rowTwo">
-
-        <Button>4</Button>
-        <Button>5</Button>
-        <Button>6</Button>
+        <Button class="numpad">7</Button>
+        <Button class="numpad">8</Button>
+        <Button class="numpad">9</Button>
 
       </div>
 
-      <div class="rowThree">
+      <div class="row two">
 
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
+        <Button class="numpad">4</Button>
+        <Button class="numpad">5</Button>
+        <Button class="numpad">6</Button>
 
       </div>
 
-      <div class="rowFour">
+      <div class="row three">
 
-        <Button>X</Button>
-        <Button>0</Button>
-        <Button>Enter</Button>
+        <Button class="numpad">1</Button>
+        <Button class="numpad">2</Button>
+        <Button class="numpad">3</Button>
+
+      </div>
+
+      <div class="row four">
+
+        <Button class="numpad clear">X</Button>
+        <Button class="numpad">0</Button>
+        <Button class="numpad enter">Enter</Button>
 
       </div>
 
@@ -57,17 +57,36 @@
 </script>
 
 <style scoped>
-
-  .test {
-    margin: 1rem;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .inputs {
+  .reactivity {
     display: flex;
     flex-direction: column;
     margin: 1rem;
+  }
+
+  .row {
+    margin: 0.5rem;
+  }
+
+  .numpad {
+    margin: 0.5rem;
+  }
+
+  .enter {
+    background-color: var(--enterprimary);
+    box-shadow: 0px 8px var(--entershadow);
+  }
+
+  .enter:active {
+    box-shadow: 0px 4px var(--entershadow);
+  }
+
+  .clear {
+    background-color: var(--clearprimary);
+    box-shadow: 0px 8px var(--clearshadow);
+  }
+
+  .clear:active {
+    box-shadow: 0px 4px var(--clearshadow);
   }
 
 </style>

@@ -10,8 +10,6 @@
 </template>
 
 <style scoped>
-
-  @import 'components/variables.css';
   
   .app {
     display: flex;
