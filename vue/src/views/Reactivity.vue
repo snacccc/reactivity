@@ -4,32 +4,32 @@
       
       <div class="row one">
 
-        <Button class="numpad">7</Button>
-        <Button class="numpad">8</Button>
-        <Button class="numpad">9</Button>
+        <Button @click="add7" class="numpad">7</Button>
+        <Button @click="add8" class="numpad">8</Button>
+        <Button @click="add9" class="numpad">9</Button>
 
       </div>
 
       <div class="row two">
 
-        <Button class="numpad">4</Button>
-        <Button class="numpad">5</Button>
-        <Button class="numpad">6</Button>
+        <Button @click="add4" class="numpad">4</Button>
+        <Button @click="add5" class="numpad">5</Button>
+        <Button @click="add6" class="numpad">6</Button>
 
       </div>
 
       <div class="row three">
 
-        <Button class="numpad">1</Button>
-        <Button class="numpad">2</Button>
-        <Button class="numpad">3</Button>
+        <Button @click="add1" class="numpad">1</Button>
+        <Button @click="add2" class="numpad">2</Button>
+        <Button @click="add3" class="numpad">3</Button>
 
       </div>
 
       <div class="row four">
 
         <Button class="numpad clear">X</Button>
-        <Button class="numpad">0</Button>
+        <Button @click="add0" class="numpad">0</Button>
         <Button class="numpad enter">Enter</Button>
 
       </div>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="output">
-        <p>Tester</p>
+        <header v-for="number in numbers"> {{ number.value }}</header>
       </div>
 
   </div>
@@ -51,6 +51,43 @@
     name: 'reactivity',
     components: {
       Button,
+    },
+    data() {
+      return {
+        numbers: [],
+      }
+    },
+    methods: {
+      add0 () {
+        this.numbers.push({value: '0'})
+      },
+      add1 () {
+        this.numbers.push({value: '1'})
+      },
+      add2 () {
+        this.numbers.push({value: '2'})
+      },
+      add3 () {
+        this.numbers.push({value: '3'})
+      },
+      add4 () {
+        this.numbers.push({value: '4'})
+      },
+      add5 () {
+        this.numbers.push({value: '5'})
+      },
+      add6 () {
+        this.numbers.push({value: '6'})
+      },
+      add7 () {
+        this.numbers.push({value: '7'})
+      },
+      add8 () {
+        this.numbers.push({value: '8'})
+      },
+      add9 () {
+        this.numbers.push({value: '9'})
+      }
     }
   }
 
@@ -87,6 +124,11 @@
 
   .clear:active {
     box-shadow: 0px 4px var(--clearshadow);
+  }
+
+  .output {
+    display: flex;
+    flex-direction: row;
   }
 
 </style>
