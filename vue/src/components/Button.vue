@@ -1,5 +1,5 @@
 <template>
-  <button placeholder="label"></button>
+  <button></button>
 </template>
 
 <script>
@@ -8,7 +8,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   button {
       width: 4rem;
       height: 3rem;

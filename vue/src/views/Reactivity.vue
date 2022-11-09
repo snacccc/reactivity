@@ -28,9 +28,9 @@
 
       <div class="row four">
 
-        <Button class="numpad clear">X</Button>
+        <Button @click="clearNums" class="numpad clear">X</Button>
         <Button @click="add0" class="numpad">0</Button>
-        <Button class="numpad enter">Enter</Button>
+        <Button @click="enterNums" class="numpad enter">Enter</Button>
 
       </div>
 
@@ -87,7 +87,13 @@
       },
       add9 () {
         this.numbers.push({value: '9'})
-      }
+      },
+      clearNums () {
+        this.numbers.splice(0);
+      },
+      enterNums () {
+        console.log(this.numbers)
+      },
     }
   }
 
@@ -129,6 +135,9 @@
   .output {
     display: flex;
     flex-direction: row;
+    font-size: 1.5rem;
+    color: white;
+    margin: 1rem;
   }
 
 </style>
