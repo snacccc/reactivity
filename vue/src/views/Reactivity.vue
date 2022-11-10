@@ -28,7 +28,7 @@
 
       <div class="row four">
 
-        <Button @click="clearNums" class="numpad clear">X</Button>
+        <Button @click="clearNums" class="numpad clear">Clear</Button>
         <Button @click="add0" class="numpad">0</Button>
         <Button @click="enterNums" class="numpad enter">Enter</Button>
 

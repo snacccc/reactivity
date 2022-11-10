@@ -1,5 +1,7 @@
 <template>
-  <button></button>
+  <button class="button">
+    <slot>Button</slot>
+  </button>
 </template>
 
 <script>
@@ -9,7 +11,7 @@
 </script>
 
 <style scoped>
-  button {
+  .button {
       width: 4rem;
       height: 3rem;
       cursor: pointer;
@@ -17,7 +19,7 @@
       border-radius: 1rem;
       box-shadow: 0px 8px gray;
    }
-  button:active {
+  .button:active {
       transform: translateY(4px);
       box-shadow: 0px 4px gray;
    }
