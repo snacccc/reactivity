@@ -4,9 +4,9 @@
       
       <div class="row one">
 
-        <Button @click="addMT" class="input mt">Milk Tea</Button>
-        <Button @click="addGT" class="input gt">Green Tea</Button>
-        <Button @click="addBT" class="input bt">Black Tea</Button>
+        <Button v-if="gtChosen && btChosen" @click="addMT(); mtChosen = !mtChosen" class="input mt">Milk Tea</Button>
+        <Button v-if="mtChosen && btChosen" @click="addGT(); gtChosen = !gtChosen" class="input gt">Green Tea</Button>
+        <Button v-if="mtChosen && gtChosen" @click="addBT(); btChosen = !btChosen" class="input bt">Black Tea</Button>
 
       </div>
 
@@ -55,10 +55,16 @@
     data() {
       return {
         choices: [],
+        mtChosen: true,
+        gtChosen: true,
+        btChosen: true,
       }
     },
     methods: {
       addMT () {
+        const mt = (tea) => tea.value = 'Milk Tea'
+        const mtIndex = this.choices.findIndex(mt)
+        this.choices.splice({mtIndex}, 1)
         this.choices.push('Milk Tea')
       },
       addGT () {
@@ -69,6 +75,9 @@
       },
       clearChoices () {
         this.choices.splice(0);
+        this.mtChosen = true;
+        this.gtChosen = true;
+        this.btChosen = true;
       },
       enterChoices () {
         console.log(this.choices)
@@ -87,6 +96,8 @@
 
   .row {
     margin: 0.5rem;
+    display: flex;
+    justify-content: center;
   }
 
   .input {
