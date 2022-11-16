@@ -12,24 +12,24 @@
 
       <div class="row two">
 
-        <Button @click="" class="input">4</Button>
-        <Button @click="" class="input">5</Button>
-        <Button @click="" class="input">6</Button>
+        <Button v-if="hiChosen && liChosen" @click="addNI(); niChosen = !niChosen" class="input">No Ice</Button>
+        <Button v-if="niChosen && liChosen" @click="addHI(); hiChosen = !hiChosen" class="input">Half Ice</Button>
+        <Button v-if="niChosen && hiChosen" @click="addLI(); liChosen = !liChosen" class="input">Less Ice</Button>
 
       </div>
 
       <div class="row three">
 
-        <Button @click="" class="input">1</Button>
-        <Button @click="" class="input">2</Button>
-        <Button @click="" class="input">3</Button>
+        <Button v-if="lsChosen && esChosen" @click="add50S(); hsChosen = !hsChosen" class="input">50% Sugar</Button>
+        <Button v-if="hsChosen && esChosen" @click="add75(); lsChosen = !lsChosen" class="input">75% Sugar</Button>
+        <Button v-if="hsChosen && lsChosen" @click="add125(); esChosen = !esChosen" class="input">125% Sugar</Button>
 
       </div>
 
       <div class="row four">
 
         <Button @click="clearChoices" class="input clear">Clear</Button>
-        <Button @click="" class="input">Add Another</Button>
+        <Button @click="addTap" class="input">Tapioca</Button>
         <Button @click="enterChoices" class="input enter">Enter</Button>
 
       </div>
@@ -58,29 +58,118 @@
         mtChosen: true,
         gtChosen: true,
         btChosen: true,
+        niChosen: true,
+        hiChosen: true,
+        liChosen: true,
+        hsChosen: true,
+        lsChosen: true,
+        esChosen: true,
       }
     },
     methods: {
       addMT () {
-        const mt = (tea) => tea.value = 'Milk Tea'
-        const mtIndex = this.choices.findIndex(mt)
-        this.choices.splice({mtIndex}, 1)
-        this.choices.push('Milk Tea')
+        const mtIndex = this.choices.indexOf('Milk Tea')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Milk Tea')
+        }
       },
       addGT () {
-        this.choices.push('Green Tea')
+        const mtIndex = this.choices.indexOf('Green Tea')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Green Tea')
+        }
       },
       addBT () {
-        this.choices.push('Black Tea')
+        const mtIndex = this.choices.indexOf('Black Tea')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Black Tea')
+        }
+      },
+      addNI () {
+        const mtIndex = this.choices.indexOf('No Ice')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('No Ice')
+        }
+      },
+      addHI () {
+        const mtIndex = this.choices.indexOf('Half Ice')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Half Ice')
+        }
+      },
+      addLI () {
+        const mtIndex = this.choices.indexOf('Less Ice')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Less Ice')
+        }
+      },
+      add50 () {
+        const mtIndex = this.choices.indexOf('50% Sugar')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('50% Sugar')
+        }
+      },
+      add75 () {
+        const mtIndex = this.choices.indexOf('75% Sugar')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('75% Sugar')
+        }
+      },
+      add125 () {
+        const mtIndex = this.choices.indexOf('125% Sugar')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('125% Sugar')
+        }
+      },
+      addTap () {
+        const mtIndex = this.choices.indexOf('Tapioca')
+        console.log(mtIndex)
+        if (mtIndex != -1) {
+          this.choices.splice(mtIndex, 1)
+        } else {
+          this.choices.push('Tapioca')
+        }
       },
       clearChoices () {
         this.choices.splice(0);
         this.mtChosen = true;
         this.gtChosen = true;
         this.btChosen = true;
+        this.niChosen = true;
+        this.hiChosen = true;
+        this.liChosen = true;
+        this.hsChosen = true;
+        this.lsChosen = true;
+        this.esChosen = true;
       },
       enterChoices () {
-        console.log(this.choices)
       },
     }
   }
