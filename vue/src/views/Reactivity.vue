@@ -183,7 +183,7 @@
         this.lsChosen = true;
         this.esChosen = true;
       },
-      enterChoices () {
+      confirmChoices () {
       },
     }
   }
