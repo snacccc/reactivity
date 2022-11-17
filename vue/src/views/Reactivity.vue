@@ -4,33 +4,46 @@
       
       <div class="row one">
 
-        <Button v-if="gtChosen && btChosen" @click="addMT(); mtChosen = !mtChosen" class="input mt">Milk Tea</Button>
-        <Button v-if="mtChosen && btChosen" @click="addGT(); gtChosen = !gtChosen" class="input gt">Green Tea</Button>
-        <Button v-if="mtChosen && gtChosen" @click="addBT(); btChosen = !btChosen" class="input bt">Black Tea</Button>
+        
+        <Button v-if="gtChosen && btChosen && entered" @click="addMT(); mtChosen = !mtChosen" class="input">Milk Tea</Button>
+        <Button v-else class="input" disabled>Milk Tea</Button>
+        <Button v-if="mtChosen && btChosen && entered" @click="addGT(); gtChosen = !gtChosen" class="input">Green Tea</Button>
+        <Button v-else class="input" disabled>Green Tea</Button>
+        <Button v-if="mtChosen && gtChosen && entered" @click="addBT(); btChosen = !btChosen" class="input">Black Tea</Button>
+        <Button v-else class="input" disabled>Black Tea</Button>
 
       </div>
 
       <div class="row two">
 
-        <Button v-if="hiChosen && liChosen" @click="addNI(); niChosen = !niChosen" class="input">No Ice</Button>
-        <Button v-if="niChosen && liChosen" @click="addHI(); hiChosen = !hiChosen" class="input">Half Ice</Button>
-        <Button v-if="niChosen && hiChosen" @click="addLI(); liChosen = !liChosen" class="input">Less Ice</Button>
+        <Button v-if="hiChosen && liChosen && entered" @click="addNI(); niChosen = !niChosen" class="input">No Ice</Button>
+        <Button v-else class="input" disabled>No Ice</Button>
+        <Button v-if="niChosen && liChosen && entered" @click="addHI(); hiChosen = !hiChosen" class="input">Half Ice</Button>
+        <Button v-else class="input" disabled>Half Ice</Button>
+        <Button v-if="niChosen && hiChosen && entered" @click="addLI(); liChosen = !liChosen" class="input">Less Ice</Button>
+        <Button v-else class="input" disabled>Less Ice</Button>
 
       </div>
 
       <div class="row three">
 
-        <Button v-if="lsChosen && esChosen" @click="add50S(); hsChosen = !hsChosen" class="input">50% Sugar</Button>
-        <Button v-if="hsChosen && esChosen" @click="add75(); lsChosen = !lsChosen" class="input">75% Sugar</Button>
-        <Button v-if="hsChosen && lsChosen" @click="add125(); esChosen = !esChosen" class="input">125% Sugar</Button>
+        <Button v-if="lsChosen && esChosen && entered" @click="add50(); hsChosen = !hsChosen" class="input">50% Sugar</Button>
+        <Button v-else class="input" disabled>50% Sugar</Button>
+        <Button v-if="hsChosen && esChosen && entered" @click="add75(); lsChosen = !lsChosen" class="input">75% Sugar</Button>
+        <Button v-else class="input" disabled>75% Sugar</Button>
+        <Button v-if="hsChosen && lsChosen && entered" @click="add125(); esChosen = !esChosen" class="input">125% Sugar</Button>
+        <Button v-else class="input" disabled>125% Sugar</Button>
 
       </div>
 
       <div class="row four">
 
-        <Button @click="clearChoices" class="input clear">Clear</Button>
-        <Button @click="addTap" class="input">Tapioca</Button>
-        <Button @click="enterChoices" class="input enter">Enter</Button>
+        <Button v-if="entered" @click="clearChoices" class="input clear">Clear</Button>
+        <Button v-else class="input clear" @click="entered = !entered">Cancel</Button>
+        <Button v-if="entered" @click="addTap" class="input">Tapioca</Button>
+        <Button v-else class="input" disabled>Tapioca</Button>
+        <Button v-if="entered" @click="entered = !entered" class="input enter">Enter</Button>
+        <Button v-else class="input enter" @click="confirmChoices();">Confirm Order</Button>
 
       </div>
 
@@ -64,6 +77,7 @@
         hsChosen: true,
         lsChosen: true,
         esChosen: true,
+        entered: true,
       }
     },
     methods: {
@@ -206,6 +220,10 @@
     box-shadow: 0px 10px var(--entershadow);
   }
 
+  .enter:hover {
+    background-color: var(--enterhover);
+  }
+
   .enter:active {
     box-shadow: 0px 5px var(--entershadow);
   }
@@ -213,6 +231,10 @@
   .clear {
     background-color: var(--clearprimary);
     box-shadow: 0px 10px var(--clearshadow);
+  }
+
+  .clear:hover {
+    background-color: var(--clearhover);
   }
 
   .clear:active {
