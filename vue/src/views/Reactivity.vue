@@ -38,8 +38,9 @@
 
       <div class="row four">
 
-        <Button v-if="entered" @click="clearChoices" class="input clear">Clear</Button>
-        <Button v-else class="input clear" @click="entered = !entered">Cancel</Button>
+        <Button v-if="entered" @click="clearChoices" class="input clear">Clear</Button> 
+        <Button v-else-if="!confirmed" class="input clear" disabled>Cancel</Button>
+        <Button v-else class="input clear" @click="entered = !entered">Cancel</Button> 
         <Button v-if="entered" @click="addItem('Tapioca')" class="input">Tapioca</Button>
         <Button v-else class="input" disabled>Tapioca</Button>
         <Button v-if="entered" @click="entered = !entered" class="input enter">Enter</Button>
