@@ -53,7 +53,9 @@
 
     <div class="output">
         <header v-for="choice in choices"> {{ choice }}</header>
-      </div>
+    </div>
+
+    <img src="../img/" class="image">
 
   </div>
 </template>
@@ -85,9 +87,9 @@
     },
     methods: {
       addItem (choice) {
-        const mtIndex = this.choices.indexOf(choice)
-        if (mtIndex != -1) {
-          this.choices.splice(mtIndex, 1)
+        const choiceIndex = this.choices.indexOf(choice)
+        if (choiceIndex != -1) {
+          this.choices.splice(choiceIndex, 1)
         } else {
           this.choices.push(choice)
         }
@@ -168,6 +170,10 @@
     font-size: 1.5rem;
     color: white;
     margin: 1rem;
+  }
+
+  .image {
+    height: 24rem;
   }
 
 </style>
