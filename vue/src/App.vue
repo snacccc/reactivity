@@ -15,18 +15,19 @@
     display: flex;
     flex-direction: row;
     background-color: var(--primarydark);
-    color: white;
     font-size: 2rem;
     height: 5rem;
     align-items: center;
     margin-bottom: 2rem;
+    border-bottom: 0.5rem solid;
+    border-color: var(--accent);
+    color: var(--accenttwo);
   }
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: white;
   }
-
 
   .router {
     margin: 0 3rem;

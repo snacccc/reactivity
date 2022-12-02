@@ -176,6 +176,8 @@
 
   .image {
     height: 24rem;
+    border: 0.4rem solid;
+    border-color: var(--accent);
   }
 
 </style>
