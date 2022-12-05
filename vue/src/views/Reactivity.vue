@@ -40,7 +40,7 @@
         <Button v-if="!entered" @click="clearChoices" class="input clear">Clear</Button> 
         <Button v-else-if="confirmed" class="input clear" disabled>Cancel</Button> 
         <Button v-else class="input clear" @click="entered = !entered">Cancel</Button> 
-        <Button v-if="!entered" @click="addItem('Tapioca')" class="input">Tapioca</Button>
+        <Button v-if="!entered" @click="addItem('Tapioca'); tapioca = !tapioca" class="input">Tapioca</Button>
         <Button v-else class="input" disabled>Tapioca</Button>
         <Button v-if="(mtChosen && !entered) || (gtChosen && !entered) || (btChosen && !entered)" @click="entered = !entered" class="input enter">Enter</Button>
         <Button v-else-if="entered && !confirmed" class="input enter" @click="addItem('Order Confirmed!'); confirmed = !confirmed">Confirm Order</Button>
@@ -55,9 +55,12 @@
         <header v-for="choice in choices"> {{ choice }} </header>
     </div>
 
-    <img src="../img/milktea.png" v-if="(confirmed && mtChosen)" class="image">
-    <img src="../img/greentea.png" v-if="(confirmed && gtChosen)" class="image">
-    <img src="../img/blacktea.png" v-if="(confirmed && btChosen)" class="image">
+    <img src="../img/bubblemilktea.png" v-if="(confirmed && mtChosen && tapioca)" class="image">
+    <img src="../img/bubblegreentea.png" v-if="(confirmed && gtChosen && tapioca)" class="image">
+    <img src="../img/bubbleblacktea.png" v-if="(confirmed && btChosen && tapioca)" class="image">
+    <img src="../img/milktea.png" v-if="(confirmed && mtChosen && !tapioca)" class="image">
+    <img src="../img/greentea.png" v-if="(confirmed && gtChosen && !tapioca)" class="image">
+    <img src="../img/blacktea.png" v-if="(confirmed && btChosen && !tapioca)" class="image">
 
   </div>
 </template>
@@ -83,6 +86,7 @@
         hsChosen: false,
         lsChosen: false,
         esChosen: false,
+        tapioca: false,
         entered: false,
         confirmed: false,
       }
@@ -107,6 +111,7 @@
         this.hsChosen = false;
         this.lsChosen = false;
         this.esChosen = false;
+        this.tapioca = false;
         this.entered = false;
         this.confirmed = false;
       },
