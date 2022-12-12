@@ -6,16 +6,21 @@
     </header>
   </div>
 
+  <Test @testEvent="(home)"/>
+  <p>{{ testArray }}</p>
+
 </template>
 
 <script>
 
   import Button from '../components/Button.vue'
+  import Test from '../components/Test.vue'
 
   export default  {
     name: 'home',
     components: {
       Button,
+      Test,
     }
     }
 
