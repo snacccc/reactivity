@@ -6,7 +6,6 @@
     </header>
   </div>
 
-  <Test @testEvent="(home)"/>
   <p>{{ testArray }}</p>
 
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('testEvent', addHeader(x))">Test</button>
+  <button @click="addHeader(test)">Test</button>
 </template>
 
 <script>
