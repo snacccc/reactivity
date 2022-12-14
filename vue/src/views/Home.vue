@@ -6,6 +6,7 @@
     </header>
   </div>
 
+  <Test @addHeader="tester('test')"/>
   <p>{{ testArray }}</p>
 
 </template>
@@ -20,7 +21,15 @@
     components: {
       Button,
       Test,
-    }
+    }, data () {
+      return {
+        testArray: [],
+      }
+    }, methods: {
+      tester (x) {
+        this.testArray.push(x)
+      }
+    },
     }
 
 </script>

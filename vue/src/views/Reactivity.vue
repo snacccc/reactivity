@@ -4,7 +4,7 @@
       
       <div class="row one">
 
-        <Button v-if="!gtChosen && !btChosen && !entered" @click="addItem('Milk Tea'); mtChosen = !mtChosen" class="input">Milk Tea</Button>
+        <Input v-if="!gtChosen && !btChosen && !entered" @click="mtChosen = !mtChosen" @addItem="inputHandler('Milk Tea')" class="input"/>
         <Button v-else class="input" disabled>Milk Tea</Button>
         <Button v-if="!mtChosen && !btChosen && !entered" @click="addItem('Green Tea'); gtChosen = !gtChosen" class="input">Green Tea</Button>
         <Button v-else class="input" disabled>Green Tea</Button>
@@ -68,11 +68,13 @@
 <script>
 
   import Button from '../components/Button.vue'
+  import Input from '../components/inputs/Milktea.vue'
 
   export default {
     name: 'reactivity',
     components: {
       Button,
+      MilkTea,
     },
     data() {
       return {
@@ -92,14 +94,14 @@
       }
     },
     methods: {
-      addItem (choice) {
+      inputHandler (choice) {
         const choiceIndex = this.choices.indexOf(choice)
         if (choiceIndex != -1) {
           this.choices.splice(choiceIndex, 1)
         } else {
           this.choices.push(choice)
-        }
-      },
+      }
+    },
       clearChoices () {
         this.choices.splice(0);
         this.mtChosen = false;

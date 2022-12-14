@@ -1,18 +1,15 @@
 <template>
-  <button @click="addHeader(test)">Test</button>
+  <button @click="addHeader(x)">Test</button>
 </template>
 
 <script>
   export default {
     name: "Test",
     data() {
-      return {
-        testArray: [],
-      }
-    },
+      },
     methods: {
       addHeader(x) {
-        this.testArray.push(x)
+        this.$emit('addHeader', x)
       }
     }
   };
