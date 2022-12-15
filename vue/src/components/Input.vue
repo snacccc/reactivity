@@ -1,13 +1,15 @@
 <template>
-  <Button @click="add('Milk Tea'), mtChosen = !mtChosen">Milk Tea</Button>
+  <Button @click="add(x)">
+    <slot>Button</slot>
+  </Button>
 </template>
 
 <script>
 
-  import Button from '../Button.vue';
+  import Button from '../components/Button.vue';
 
   export default {
-    name: "MilkTea",
+    name: "Input",
     components: {
       Button,
     }, methods: {

@@ -4,11 +4,11 @@
       
       <div class="row one">
 
-        <Input v-if="!gtChosen && !btChosen && !entered" @click="mtChosen = !mtChosen" @addItem="inputHandler('Milk Tea')" class="input"/>
+        <Input v-if="!gtChosen && !btChosen && !entered" @addItem="inputHandler('Milk Tea')" @click="mtChosen = !mtChosen" class="input">Milk Tea</Input>
         <Button v-else class="input" disabled>Milk Tea</Button>
-        <Button v-if="!mtChosen && !btChosen && !entered" @click="addItem('Green Tea'); gtChosen = !gtChosen" class="input">Green Tea</Button>
+        <Input v-if="!mtChosen && !btChosen && !entered" @addItem="inputHandler('Green Tea')" @click="gtChosen = !gtChosen" class="input">Green Tea</Input>
         <Button v-else class="input" disabled>Green Tea</Button>
-        <Button v-if="!mtChosen && !gtChosen && !entered" @click="addItem('Black Tea'); btChosen = !btChosen" class="input">Black Tea</Button>
+        <Input v-if="!mtChosen && !gtChosen && !entered" @addItem="inputHandler('Black Tea')" @click="btChosen = !btChosen" class="input">Black Tea</Input>
         <Button v-else class="input" disabled>Black Tea</Button>
 
       </div>
@@ -68,13 +68,13 @@
 <script>
 
   import Button from '../components/Button.vue'
-  import Input from '../components/inputs/Milktea.vue'
+  import Input from '../components/Input.vue'
 
   export default {
     name: 'reactivity',
     components: {
       Button,
-      MilkTea,
+      Input,
     },
     data() {
       return {
