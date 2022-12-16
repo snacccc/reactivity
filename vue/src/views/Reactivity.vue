@@ -15,11 +15,11 @@
 
       <div class="row two">
 
-        <Button v-if="!hiChosen && !liChosen && !entered" @click="addItem('No Ice'); niChosen = !niChosen" class="input">No Ice</Button>
+        <Input v-if="!hiChosen && !liChosen && !entered" @addItem="inputHandler('No Ice')" @click="niChosen = !niChosen" class="input">No Ice</Input>
         <Button v-else class="input" disabled>No Ice</Button>
-        <Button v-if="!niChosen && !liChosen && !entered" @click="addItem('Half Ice'); hiChosen = !hiChosen" class="input">Half Ice</Button>
+        <Input v-if="!niChosen && !liChosen && !entered" @addItem="inputHandler('Half Ice')" @click="hiChosen = !hiChosen" class="input">Half Ice</Input>
         <Button v-else class="input" disabled>Half Ice</Button>
-        <Button v-if="!niChosen && !hiChosen && !entered" @click="addItem('Less Ice'); liChosen = !liChosen" class="input">Less Ice</Button>
+        <Input v-if="!niChosen && !hiChosen && !entered" @addItem="inputHandler('Less Ice')" @click="liChosen = !liChosen" class="input">Less Ice</Input>
         <Button v-else class="input" disabled>Less Ice</Button>
 
       </div>
