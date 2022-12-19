@@ -4,7 +4,7 @@
       
       <div class="row one">
 
-        <Input v-if="!gtChosen && !btChosen && !entered" @addItem="inputHandler('Milk Tea')" @click="mtChosen = !mtChosen" class="input">Milk Tea</Input>
+        <Input v-if="!gtChosen && !btChosen && !entered" :choice="'Milk Tea'" :inputs="inputs" @click="mtChosen = !mtChosen" class="input">Milk Tea</Input>
         <Button v-else class="input" disabled>Milk Tea</Button>
         <Input v-if="!mtChosen && !btChosen && !entered" @addItem="inputHandler('Green Tea')" @click="gtChosen = !gtChosen" class="input">Green Tea</Input>
         <Button v-else class="input" disabled>Green Tea</Button>
@@ -26,11 +26,11 @@
 
       <div class="row three">
 
-        <Button v-if="!lsChosen && !esChosen && !entered" @click="addItem('50% Sugar'); hsChosen = !hsChosen" class="input">50% Sugar</Button>
+        <Input v-if="!lsChosen && !esChosen && !entered" @addItem="inputHandler('50% Sugar')" @click="hsChosen = !hsChosen" class="input">50% Sugar</Input>
         <Button v-else class="input" disabled>50% Sugar</Button>
-        <Button v-if="!hsChosen && !esChosen && !entered" @click="addItem('75% Sugar'); lsChosen = !lsChosen" class="input">75% Sugar</Button>
+        <Button v-if="!hsChosen && !esChosen && !entered" @addItem="inputHandler('75% Sugar')" @click="lsChosen = !lsChosen" class="input">75% Sugar</Button>
         <Button v-else class="input" disabled>75% Sugar</Button>
-        <Button v-if="!hsChosen && !lsChosen && !entered" @click="addItem('125% Sugar'); esChosen = !esChosen" class="input">125% Sugar</Button>
+        <Button v-if="!hsChosen && !lsChosen && !entered" @addItem="inputHandler('125% Sugar')" @click="esChosen = !esChosen" class="input">125% Sugar</Button>
         <Button v-else class="input" disabled>125% Sugar</Button>
 
       </div>
@@ -94,13 +94,8 @@
       }
     },
     methods: {
-      inputHandler (choice) {
-        const choiceIndex = this.choices.indexOf(choice)
-        if (choiceIndex != -1) {
-          this.choices.splice(choiceIndex, 1)
-        } else {
-          this.choices.push(choice)
-      }
+      inputHandler () {
+        this.inputs.$emit('input')
     },
       clearChoices () {
         this.choices.splice(0);

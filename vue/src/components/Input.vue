@@ -1,5 +1,5 @@
 <template>
-  <Button @click="add(x)">
+  <Button>
     <slot>Button</slot>
   </Button>
 </template>
@@ -10,13 +10,22 @@
 
   export default {
     name: "Input",
+    props: ['choice', 'inputs'],  
     components: {
       Button,
     }, methods: {
-      add(x) {
-        this.$emit("addItem", x)
+      inputHandler (choice) {
+        const choiceIndex = this.choices.indexOf(choice)
+        if (choiceIndex != -1) {
+          this.choices.splice(choiceIndex, 1)
+        } else {
+          this.choices.push(choice)
+      }
       }
     },
+    mounted() {
+      inputs.$on('input', this.inputHandler)
+    }
   }
 
 </script>
