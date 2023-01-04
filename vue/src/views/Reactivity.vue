@@ -4,11 +4,11 @@
       
       <div class="row one">
 
-        <Input v-if="!gtChosen && !btChosen && !entered" :choice="'Milk Tea'" :inputs="inputs" @click="mtChosen = !mtChosen" class="input">Milk Tea</Input>
+        <MTHandler v-if="!gtChosen && !btChosen && !entered" :choice="'Milk Tea'" :inputs="inputs" class="input">Milk Tea</MTHandler>
         <Button v-else class="input" disabled>Milk Tea</Button>
-        <Input v-if="!mtChosen && !btChosen && !entered" @addItem="inputHandler('Green Tea')" @click="gtChosen = !gtChosen" class="input">Green Tea</Input>
+        <GTHandler v-if="!mtChosen && !btChosen && !entered" :choice="'Green Tea'" :inputs="inputs" class="input">Green Tea</GTHandler>
         <Button v-else class="input" disabled>Green Tea</Button>
-        <Input v-if="!mtChosen && !gtChosen && !entered" @addItem="inputHandler('Black Tea')" @click="btChosen = !btChosen" class="input">Black Tea</Input>
+        <BTHandler v-if="!mtChosen && !gtChosen && !entered" :choice="'Black Tea'" :inputs="inputs" class="input">Black Tea</BTHandler>
         <Button v-else class="input" disabled>Black Tea</Button>
 
       </div>
@@ -68,7 +68,10 @@
 <script>
 
   import Button from '../components/Button.vue'
-  import Input from '../components/Input.vue'
+  import MTHandler from '../components/handlers/MTHandler.vue'
+  import GTHandler from '../components/handlers/GTHandler.vue'
+  import BTHandler from '../components/handlers/BTHandler.vue'
+  import '../components/handlers/handler-variables.js'
 
   export default {
     name: 'reactivity',
@@ -79,24 +82,18 @@
     data() {
       return {
         choices: [],
-        mtChosen: false,
-        gtChosen: false,
-        btChosen: false,
-        niChosen: false,
-        hiChosen: false,
-        liChosen: false,
-        hsChosen: false,
-        lsChosen: false,
-        esChosen: false,
-        tapioca: false,
-        entered: false,
-        confirmed: false,
       }
     },
     methods: {
-      inputHandler () {
+      mtHandler () {
         this.inputs.$emit('input')
     },
+      gtHandler () {
+        this.inputs.$emit('input')
+      },
+      btHandler () {
+        this.inputs.$emit('input')
+      },
       clearChoices () {
         this.choices.splice(0);
         this.mtChosen = false;

@@ -6,15 +6,17 @@
 
 <script>
 
-  import Button from '../components/Button.vue';
+  import Button from '../Button.vue';
+  import btChosen from './handler-variables.js'
 
   export default {
-    name: "Input",
+    name: "BTHandler",
     props: ['choice', 'inputs'],  
     components: {
       Button,
     }, methods: {
-      inputHandler (choice) {
+      btHandler (choice) {
+        btChosen = !btChosen
         const choiceIndex = this.choices.indexOf(choice)
         if (choiceIndex != -1) {
           this.choices.splice(choiceIndex, 1)
@@ -24,7 +26,7 @@
       }
     },
     mounted() {
-      inputs.$on('input', this.inputHandler)
+      inputs.$on('input', this.btHandler)
     }
   }
 
