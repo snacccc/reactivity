@@ -7,13 +7,14 @@
 <script>
 
   import Button from '../Button.vue';
-  import btChosen from './handler-variables.js'
+  import HandlerVariables from './handler-variables.vue'
 
   export default {
     name: "BTHandler",
     props: ['choice', 'inputs'],  
     components: {
       Button,
+      HandlerVariables,
     }, methods: {
       btHandler (choice) {
         btChosen = !btChosen

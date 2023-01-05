@@ -7,7 +7,7 @@
 <script>
 
   import Button from '../Button.vue';
-  import gtChosen from './handler-variables.js'
+  import gtChosen from './handler-variables.vue'
 
   export default {
     name: "GTHandler",

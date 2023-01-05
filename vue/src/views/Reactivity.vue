@@ -15,18 +15,18 @@
 
       <div class="row two">
 
-        <Input v-if="!hiChosen && !liChosen && !entered" @addItem="inputHandler('No Ice')" @click="niChosen = !niChosen" class="input">No Ice</Input>
+        <Button v-if="!hiChosen && !liChosen && !entered" @addItem="inputHandler('No Ice')" @click="niChosen = !niChosen" class="input">No Ice</Button>
         <Button v-else class="input" disabled>No Ice</Button>
-        <Input v-if="!niChosen && !liChosen && !entered" @addItem="inputHandler('Half Ice')" @click="hiChosen = !hiChosen" class="input">Half Ice</Input>
+        <Button v-if="!niChosen && !liChosen && !entered" @addItem="inputHandler('Half Ice')" @click="hiChosen = !hiChosen" class="input">Half Ice</Button>
         <Button v-else class="input" disabled>Half Ice</Button>
-        <Input v-if="!niChosen && !hiChosen && !entered" @addItem="inputHandler('Less Ice')" @click="liChosen = !liChosen" class="input">Less Ice</Input>
+        <Button v-if="!niChosen && !hiChosen && !entered" @addItem="inputHandler('Less Ice')" @click="liChosen = !liChosen" class="input">Less Ice</Button>
         <Button v-else class="input" disabled>Less Ice</Button>
 
       </div>
 
       <div class="row three">
 
-        <Input v-if="!lsChosen && !esChosen && !entered" @addItem="inputHandler('50% Sugar')" @click="hsChosen = !hsChosen" class="input">50% Sugar</Input>
+        <Button v-if="!lsChosen && !esChosen && !entered" @addItem="inputHandler('50% Sugar')" @click="hsChosen = !hsChosen" class="input">50% Sugar</Button>
         <Button v-else class="input" disabled>50% Sugar</Button>
         <Button v-if="!hsChosen && !esChosen && !entered" @addItem="inputHandler('75% Sugar')" @click="lsChosen = !lsChosen" class="input">75% Sugar</Button>
         <Button v-else class="input" disabled>75% Sugar</Button>
@@ -71,13 +71,16 @@
   import MTHandler from '../components/handlers/MTHandler.vue'
   import GTHandler from '../components/handlers/GTHandler.vue'
   import BTHandler from '../components/handlers/BTHandler.vue'
-  import '../components/handlers/handler-variables.js'
+  import HandlerVariables from '../components/handlers/handler-variables.vue'
 
   export default {
     name: 'reactivity',
     components: {
       Button,
-      Input,
+      MTHandler,
+      GTHandler,
+      BTHandler,
+      HandlerVariables,
     },
     data() {
       return {

@@ -5,8 +5,6 @@
 <script>
   export default {
     name: "Test",
-    data() {
-      },
     methods: {
       addHeader(x) {
         this.$emit('addHeader', x)

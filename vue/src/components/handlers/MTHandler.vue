@@ -7,7 +7,7 @@
 <script>
 
   import Button from '../Button.vue';
-  import mtChosen from './handler-variables.js'
+  import mtChosen from './handler-variables.vue'
 
   export default {
     name: "MTHandler",
